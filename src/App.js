@@ -14,7 +14,7 @@ function App() {
         let sirname = data.sirname.toLowerCase();
         let university = data.university.toLowerCase();
         let faculty = data.faculty.toLowerCase();
-        let keywords = data.keywords?.map((keyword) => keyword.toLowerCase());
+        let keywords = data.keywords?.split(",").map((keyword) => keyword.toLowerCase());
         return (
             number.includes(find) ||
             numberID.includes(find) | name.includes(find) ||
