@@ -18,7 +18,7 @@ let Card = (props) => {
     }
 
     return (
-        <div className="bg-white w-80 rounded-lg m-4 p-4 shadow-xl text-gray-900">
+        <div className="transition-all bg-white w-80 rounded-lg m-4 p-4 shadow-xl text-gray-900">
             <img src={imgUrl} alt="" className=" rounded-md w-full h-60 object-cover" />
             <p className="name text-3xl">
                 {data.number}.{data.name} {data.sirname}

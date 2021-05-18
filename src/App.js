@@ -44,7 +44,7 @@ function App() {
         <div className="App bg-gray-100 bg-gradient-to-b from-blue-100 min-h-screen">
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <div className="main">
-                <div className="main-list">{cardElements}</div>
+                <div className="main-list transition-all">{cardElements}</div>
             </div>
         </div>
     );
