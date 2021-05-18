@@ -15,7 +15,7 @@ function App() {
         let sirname = data.sirname.toLowerCase();
         let university = data.university.toLowerCase();
         let faculty = data.faculty.toLowerCase();
-        let keywords = data.keywords?.split(",").map((keyword) => keyword.toLowerCase());
+        let keywords = data.keywords?.split(" ").map((keyword) => keyword.toLowerCase());
 
         let result = true;
         let finds = find.split(" ");
@@ -34,7 +34,6 @@ function App() {
             }
         }
         return result;
-
     });
 
     const cardElements = filteredDatas.map((data, index) => {

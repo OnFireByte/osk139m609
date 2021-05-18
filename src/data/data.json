@@ -141,7 +141,7 @@
         "major": "Adme",
         "TCAS": 1,
         "course": "นานาชาติ",
-        "keywords": "อินเตอร์,วิศวะ,CU,ซีโน่,zno"
+        "keywords": "อินเตอร์ วิศวะ CU เอเบิล เอเบิ้ล able"
     },
     {
         "number": 14,
@@ -153,7 +153,7 @@
         "major": "วิศวกรรมหุ่นยนต์และระบบอัตโนมัติ",
         "TCAS": 2,
         "course": "ไทย",
-        "keywords": "บางมด,วิศวะ,KMUTT,ปั้น"
+        "keywords": "บางมด วิศวะ KMUTT ปั้น"
     },
     {
         "number": 15,
@@ -347,11 +347,12 @@
         "studentID": 54765,
         "name": "ณพวิทย์",
         "sirname": "รัตนวารินทร์ชัย",
-        "university": "",
-        "faculty": "",
-        "major": "",
-        "TCAS": "",
-        "course": ""
+        "university": "จุฬาลงกรณ์มหาวิทยาลัย",
+        "faculty": "คณะสถาปัตยกรรมศาสตร์",
+        "major": "สถาปัตยกรรมไทย",
+        "TCAS": "2",
+        "course": "ภาษาไทย",
+        "keywords": "ป้อง pong สถาปัตย์ สถาปัตย์ไทย"
     },
     {
         "number": 33,

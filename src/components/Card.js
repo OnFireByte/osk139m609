@@ -5,7 +5,7 @@ let Card = (props) => {
 
     let Uinfo = "";
 
-    let imgUrl = "assets/" + data.number.toString() + ".jpg";
+    let imgUrl = "assets/" + data.number.toString() + ".jfif";
 
     if (!!data.university) {
         Uinfo = (
