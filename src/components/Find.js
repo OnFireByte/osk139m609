@@ -3,7 +3,7 @@ import "./Find.css";
 let Find = (props) => {
     const { value, onValueChange } = props;
     return (
-        <div className="find">
+        <div className="find w-5/12 shadow-inner">
             <input
                 type="text"
                 className="find-input"

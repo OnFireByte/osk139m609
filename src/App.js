@@ -40,16 +40,10 @@ function App() {
         return <Card key={data.number} data={data} />;
     });
 
-    let finds = find.split(" ");
-    for (let i = 0; i < finds.length; i++) {
-        console.log(finds[i]);
-    }
-
     return (
-        <div className="App">
-            <AppHeader />
+        <div className="App bg-gray-100 bg-gradient-to-b from-blue-100 min-h-screen">
+            <AppHeader findValue={find} onFindValueChange={setFind} />
             <div className="main">
-                <Find value={find} onValueChange={setFind} />
                 <div className="main-list">{cardElements}</div>
             </div>
         </div>
