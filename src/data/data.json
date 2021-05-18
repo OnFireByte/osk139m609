@@ -137,11 +137,11 @@
         "name": "กันตินันท์",
         "sirname": "แสงประชาธนารักษ์",
         "university": "จุฬาลงกรณ์มหาวิทยาลัย",
-        "faculty": "ISE",
+        "faculty": "International School of Engineering",
         "major": "Adme",
         "TCAS": 1,
         "course": "นานาชาติ",
-        "keywords": "อินเตอร์ วิศวะ CU เอเบิล เอเบิ้ล able"
+        "keywords": "อินเตอร์ วิศวะ CU เอเบิล เอเบิ้ล able ISE"
     },
     {
         "number": 14,
@@ -325,11 +325,12 @@
         "studentID": 54750,
         "name": "กฤตพจน์",
         "sirname": "แสงประชาธนารักษ์",
-        "university": "",
-        "faculty": "",
-        "major": "",
-        "TCAS": "",
-        "course": ""
+        "university": "จุฬาลงกรณ์มหาวิทยาลัย",
+        "faculty": "International School of Engineering",
+        "major": "Adme",
+        "TCAS": "1",
+        "course": "",
+        "keywords": "zno ซีโน่ ISE CU chula "
     },
     {
         "number": 31,

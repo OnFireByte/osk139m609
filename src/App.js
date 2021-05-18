@@ -40,11 +40,26 @@ function App() {
         return <Card key={data.number} data={data} />;
     });
 
+    const CheckCardElement = () => {
+        if (filteredDatas.length == 0) {
+            return (
+                <div className="text-6xl text-gray-800 h-screen w-full flex items-center justify-center">
+                    Nothing found, Sorry.
+                </div>
+            );
+        }
+        return (
+            <div items-center className="main-list min-h-screen pt-24 pb-3 transition-all ">
+                {cardElements}
+            </div>
+        );
+    };
+
     return (
-        <div className="App bg-gray-100 bg-gradient-to-b from-blue-100 min-h-screen">
+        <div className="App bg-pink-100 bg-gradient-to-b from-blue-200 min-h-screen">
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <div className="main">
-                <div className="main-list transition-all">{cardElements}</div>
+                <CheckCardElement />
             </div>
         </div>
     );
