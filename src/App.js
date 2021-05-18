@@ -34,6 +34,7 @@ function App() {
             }
         }
         return result;
+
     });
 
     const cardElements = filteredDatas.map((data, index) => {
