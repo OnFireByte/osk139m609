@@ -18,21 +18,19 @@ function App() {
         let keywords = data.keywords?.split(",").map((keyword) => keyword.toLowerCase());
 
         let result = true;
-        if (!!find) {
-            let finds = find.split(" ");
-            for (let i = 0; i < finds.length; i++) {
-                if (
-                    number.includes(finds[i]) ||
-                    numberID.includes(finds[i]) ||
-                    name.includes(finds[i]) ||
-                    sirname.includes(finds[i]) ||
-                    university.includes(finds[i]) ||
-                    faculty.includes(finds[i]) ||
-                    keywords?.some((keyword) => keyword.includes(find[i].toLowerCase()))
-                ) {
-                } else {
-                    result = false;
-                }
+        let finds = find.split(" ");
+        for (let i = 0; i < finds.length; i++) {
+            if (
+                number.includes(finds[i]) ||
+                numberID.includes(finds[i]) ||
+                name.includes(finds[i]) ||
+                sirname.includes(finds[i]) ||
+                university.includes(finds[i]) ||
+                faculty.includes(finds[i]) ||
+                keywords?.some((keyword) => keyword.includes(finds[i].toLowerCase()))
+            ) {
+            } else {
+                result = false;
             }
         }
         return result;
@@ -41,6 +39,11 @@ function App() {
     const cardElements = filteredDatas.map((data, index) => {
         return <Card key={data.number} data={data} />;
     });
+
+    let finds = find.split(" ");
+    for (let i = 0; i < finds.length; i++) {
+        console.log(finds[i]);
+    }
 
     return (
         <div className="App">
