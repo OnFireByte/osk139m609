@@ -6,6 +6,11 @@ module.exports = {
             body: ["HelvethaicaMon"],
             sans: ["HelvethaicaMon"],
         },
+        extend: {
+            spacing: {
+                54: "13.5rem",
+            },
+        },
     },
     variants: {
         extend: {},

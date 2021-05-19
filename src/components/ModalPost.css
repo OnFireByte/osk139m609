@@ -1,11 +1,13 @@
-.main-box {
-    max-height: 90%;
-}
-
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .close {
         -moz-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.7));
         -webkit-filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.7));
         filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.7));
+    }
+}
+
+@media (max-width: 800px) {
+    .modal-img {
+        object-position: center;
     }
 }

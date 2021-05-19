@@ -28,15 +28,15 @@ let ModalPost = (props) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0 }}
                 transition={{ type: "spring" }}
-                className="main-box transition-all z-40 fixed bg-white rounded-3xl lg:flex-row lg:h-4/5 lg:w-2/3 w-4/5 table lg:flex flex-col"
+                className="main-box transition-all z-40 fixed bg-white rounded-3xl lg:flex-row lg:h-2/3 xl:h-4/5 lg:w-4/5 w-4/5 table lg:flex flex-col"
             >
                 <CloseSvg
                     onClick={() => onBgClick(null)}
-                    className="cursor-pointer absolute top-0 right-0 m-4 opacity-80 lg:opacity-100 lg:m-6 w-6 h-6 fill-current close text-white lg:text-gray-900  "
+                    className="cursor-pointer absolute top-0 right-0 bg-gray-500 lg:bg-transparent bg-opacity-40 opacity-80 lg:opacity-100 box-content p-2 lg:p-0 rounded-full lg:rounded-none m-2 lg:m-6 w-6 h-6 fill-current close text-white lg:text-gray-900  "
                 />
                 <img
                     src={imgUrl}
-                    className=" rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 object-right lg:object-right-bottom h-56 lg:h-full object-cover"
+                    className=" modal-img object-bottom lg:object-right-bottom rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 h-56 lg:h-full object-cover"
                 />
 
                 <div className="grid content-center lg:flex-1 lg:flex-grow-1 transition-all pb-5">
