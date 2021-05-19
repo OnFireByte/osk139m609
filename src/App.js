@@ -5,7 +5,6 @@ import Card from "./components/Card";
 import datas from "./data/data.json";
 import ModalPost from "./components/ModalPost";
 import { AnimatePresence } from "framer-motion";
-import { trackWindowScroll } from "react-lazy-load-image-component";
 
 function App() {
     const [modal, setModal] = useState(false);
@@ -45,7 +44,7 @@ function App() {
         return result;
     });
 
-    const cardElements = filteredDatas.map((data, index) => (
+    const cardElements = filteredDatas.map((data) => (
         <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
     ));
 

@@ -20,7 +20,7 @@ let ModalPost = (props) => {
             </div>
         );
     }
-    let imgUrl = "assets/" + data.number + ".JPG";
+    let imgUrl = "assets/bigImages/" + data.number + ".JPG";
     return (
         <div className="flex z-40 items-center justify-center fixed w-screen h-screen">
             <motion.div
