@@ -1,5 +1,5 @@
 {
-    "_homepage": "http://onfirebyte.github.io/react-osk139m609-test",
+    "homepage": "http://onfirebyte.github.io/react-osk139m609-test",
     "name": "osk139m609",
     "version": "0.1.0",
     "private": true,
@@ -11,6 +11,7 @@
         "framer-motion": "^4.1.17",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-lazy-load-image-component": "^1.5.1",
         "react-scripts": "4.0.3",
         "web-vitals": "^1.1.2"
     },

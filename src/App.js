@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import AppHeader from "./components/AppHeader";
 import Card from "./components/Card";
 import datas from "./data/data.json";
 import ModalPost from "./components/ModalPost";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import { trackWindowScroll } from "react-lazy-load-image-component";
 
 function App() {
     const [modal, setModal] = useState(false);
@@ -49,7 +50,7 @@ function App() {
     ));
 
     const CheckCardElement = () => {
-        if (filteredDatas.length == 0) {
+        if (filteredDatas.length === 0) {
             return (
                 <div className="text-6xl text-gray-800 transition-all h-screen w-full flex items-center justify-center">
                     Nothing found, Sorry.

@@ -36,6 +36,7 @@ let ModalPost = (props) => {
                 />
                 <img
                     src={imgUrl}
+                    alt={data.name + " " + data.sirname}
                     className=" modal-img object-bottom lg:object-right-bottom rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 h-56 lg:h-full object-cover"
                 />
 
@@ -56,12 +57,11 @@ let ModalPost = (props) => {
                 </div>
             </motion.div>
             <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0.5 }}
+                animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ type: "linear" }}
                 onClick={() => onBgClick(null)}
-                className="w-screen z-30 cursor-pointer h-screen fixed transition-none bg-gray-900 bg-opacity-80"
+                className="w-screen z-30 cursor-pointer h-screen fixed transition-none bg-gray-900 bg-opacity-95"
             />
         </div>
     );
