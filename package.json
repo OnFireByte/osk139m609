@@ -21,7 +21,8 @@
         "stop": "taskkill -F -IM node.exe",
         "eject": "react-scripts eject",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d build",
+        "deployNoBuild": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
