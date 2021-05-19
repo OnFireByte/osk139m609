@@ -37,7 +37,7 @@ let ModalPost = (props) => {
                 <img
                     src={imgUrl}
                     alt={data.name + " " + data.sirname}
-                    className=" modal-img object-bottom lg:object-right-bottom rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 h-56 lg:h-full object-cover"
+                    className=" modal-img bg-gray-700 object-bottom lg:object-right-bottom rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 h-56 lg:h-full object-cover"
                 />
 
                 <div className="grid content-center lg:flex-1 lg:flex-grow-1 transition-all pb-5">

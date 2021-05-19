@@ -24,7 +24,7 @@ let Card = (props) => {
                 src={imgUrl}
                 alt=""
                 loading="lazy"
-                className=" rounded-t-2xl w-full flex-grow-0 object-right-top h-36 md:h-60 object-cover"
+                className=" rounded-t-2xl w-full flex-grow-0 bg-gray-500 object-right-top h-36 md:h-60 object-cover"
             />
 
             <div className="grid grid-cols-1 content-center flex-1 flex-grow-1 mx-2 my-2">
