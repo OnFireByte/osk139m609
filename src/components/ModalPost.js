@@ -21,9 +21,10 @@ let ModalPost = (props) => {
     return (
         <>
             <motion.div
-                initial={{ opacity: 0, scale: 0.75 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ type: "spring", velocity: 15 }}
                 className="main-box transition-all z-40 fixed bg-white rounded-3xl lg:flex-row lg:h-4/5 lg:w-2/3 w-4/5 flex flex-col"
             >
                 <img
@@ -31,8 +32,8 @@ let ModalPost = (props) => {
                     className=" rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 object-right-down h-56 lg:h-full object-cover"
                 />
 
-                <div className="grid content-center flex-1 flex-grow-1 transition-all">
-                    <div className="name flex flex-col items-center  my-3 lg:justify-center transition-all">
+                <motion.div className="grid content-center flex-1 flex-grow-1 transition-all">
+                    <motion.div className="name flex flex-col items-center  my-3 lg:justify-center transition-all">
                         <span className="firstname text-7xl text-center">{data.name}</span>
                         <span className="second text-5xl text-center">{data.sirname}</span>
                         <span className="id text-xl lg:text-2xl">
@@ -40,8 +41,8 @@ let ModalPost = (props) => {
                         </span>
 
                         {UInfo}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, scale: 0.75 }}
