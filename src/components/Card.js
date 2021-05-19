@@ -18,7 +18,7 @@ let Card = (props) => {
     return (
         <div
             onClick={() => onCardClick(data)}
-            className="transition-all flex flex-col bg-white w-2/5 lg:w-80 rounded-2xl m-2 max-h-96 lg:m-4 p-0 shadow-xl text-gray-900"
+            className="transition-all cursor-pointer flex flex-col bg-white w-2/5 lg:w-80 rounded-2xl m-2 max-h-96 lg:m-4 p-0 shadow-xl text-gray-900"
         >
             <img
                 src={imgUrl}

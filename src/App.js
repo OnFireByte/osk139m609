@@ -4,6 +4,7 @@ import AppHeader from "./components/AppHeader";
 import Card from "./components/Card";
 import datas from "./data/data.json";
 import ModalPost from "./components/ModalPost";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 function App() {
     const [modal, setModal] = useState(null);
@@ -49,21 +50,25 @@ function App() {
     });
 
     const cardElements = filteredDatas.map((data, index) => {
-        return <Card key={data.number} data={data} onCardClick={onCardOpenClick} />;
+        return (
+            <CSSTransition key={index} timeout={500} classNames="item">
+                <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
+            </CSSTransition>
+        );
     });
 
     const CheckCardElement = () => {
         if (filteredDatas.length == 0) {
             return (
-                <div className="text-6xl text-gray-800 h-screen w-full flex items-center justify-center">
+                <div className="text-6xl text-gray-800 transition-all h-screen w-full flex items-center justify-center">
                     Nothing found, Sorry.
                 </div>
             );
         }
         return (
-            <div items-center className="main-list min-h-screen pt-24 pb-3 transition-all ">
+            <TransitionGroup className="main-list min-h-screen pt-24 pb-3 transition-all ">
                 {cardElements}
-            </div>
+            </TransitionGroup>
         );
     };
 
