@@ -4,19 +4,14 @@ import AppHeader from "./components/AppHeader";
 import Card from "./components/Card";
 import datas from "./data/data.json";
 import ModalPost from "./components/ModalPost";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
-    const [modal, setModal] = useState(null);
+    const [modal, setModal] = useState(false);
 
     const onCardOpenClick = (theCard) => {
         setModal(theCard);
     };
-
-    let modalPost = null;
-    if (!!modal) {
-        modalPost = <ModalPost data={modal} onBgClick={onCardOpenClick} />;
-    }
 
     const [find, setFind] = useState("");
     const filteredDatas = datas.filter((data) => {
@@ -49,13 +44,9 @@ function App() {
         return result;
     });
 
-    const cardElements = filteredDatas.map((data, index) => {
-        return (
-            <CSSTransition key={index} timeout={500} classNames="item">
-                <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
-            </CSSTransition>
-        );
-    });
+    const cardElements = filteredDatas.map((data, index) => (
+        <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
+    ));
 
     const CheckCardElement = () => {
         if (filteredDatas.length == 0) {
@@ -66,15 +57,16 @@ function App() {
             );
         }
         return (
-            <TransitionGroup className="main-list min-h-screen pt-24 pb-3 transition-all ">
-                {cardElements}
-            </TransitionGroup>
+            <div className="main-list min-h-screen pt-24 pb-3 transition-all ">{cardElements}</div>
         );
     };
 
     return (
         <div className="App bg-pink-100 bg-gradient-to-b from-blue-200 min-h-screen">
-            {modalPost}
+            <AnimatePresence>
+                {modal && <ModalPost data={modal} onBgClick={onCardOpenClick} />}
+            </AnimatePresence>
+
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <div className="main">
                 <CheckCardElement />

@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import "./ModalPost.css";
+
 let ModalPost = (props) => {
     const { data, onBgClick } = props;
     let UInfo = null;
@@ -14,14 +17,15 @@ let ModalPost = (props) => {
             </div>
         );
     }
-    let imgUrl = "assets/" + data.number.toString() + ".JPG";
+    let imgUrl = "assets/" + data.number + ".JPG";
     return (
-        <div className="ModalPost z-50 fixed w-screen h-screen l  bg-gray-900 bg-opacity-80 flex items-center justify-center">
-            <div
-                onClick={() => onBgClick(null)}
-                className="w-screen cursor-pointer h-screen fixed transition-none"
-            ></div>
-            <div className="main-box z-20 transition-all bg-white rounded-3xl  lg:flex-row lg:h-4/5 lg:w-2/3 w-4/5 flex flex-col items-center">
+        <>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.75 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+                className="main-box transition-all z-40 fixed bg-white rounded-3xl lg:flex-row lg:h-4/5 lg:w-2/3 w-4/5 flex flex-col"
+            >
                 <img
                     src={imgUrl}
                     className=" rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 object-right-down h-56 lg:h-full object-cover"
@@ -38,8 +42,15 @@ let ModalPost = (props) => {
                         {UInfo}
                     </div>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.75 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => onBgClick(null)}
+                className="w-screen z-30 cursor-pointer h-screen fixed transition-none bg-gray-900 bg-opacity-80"
+            />
+        </>
     );
 };
 
