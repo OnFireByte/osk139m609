@@ -22,12 +22,12 @@ let ModalPost = (props) => {
     }
     let imgUrl = "assets/" + data.number + ".JPG";
     return (
-        <motion.div className="flex z-40 items-center justify-center fixed w-screen h-screen">
+        <div className="flex z-40 items-center justify-center fixed w-screen h-screen">
             <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.75 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ type: "spring", velocity: 15 }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{ type: "spring" }}
                 className="main-box transition-all z-40 fixed bg-white rounded-3xl lg:flex-row lg:h-4/5 lg:w-2/3 w-4/5 table lg:flex flex-col"
             >
                 <CloseSvg
@@ -39,8 +39,8 @@ let ModalPost = (props) => {
                     className=" rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 object-right lg:object-right-bottom h-56 lg:h-full object-cover"
                 />
 
-                <motion.div className="grid content-center lg:flex-1 lg:flex-grow-1 transition-all pb-5">
-                    <motion.div className="name flex flex-col items-center  my-3 lg:justify-center transition-all">
+                <div className="grid content-center lg:flex-1 lg:flex-grow-1 transition-all pb-5">
+                    <div className="name flex flex-col items-center  my-3 lg:justify-center transition-all">
                         <span className="firstname lg:text-7xl text-5xl text-center">
                             {data.name}
                         </span>
@@ -52,17 +52,18 @@ let ModalPost = (props) => {
                         </span>
 
                         {UInfo}
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
             </motion.div>
             <motion.div
-                initial={{ opacity: 0, scale: 0.75 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
+                transition={{ type: "linear" }}
                 onClick={() => onBgClick(null)}
                 className="w-screen z-30 cursor-pointer h-screen fixed transition-none bg-gray-900 bg-opacity-80"
             />
-        </motion.div>
+        </div>
     );
 };
 
