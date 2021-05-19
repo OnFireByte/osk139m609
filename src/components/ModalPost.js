@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import "./ModalPost.css";
+import { ReactComponent as CloseSvg } from "./close.svg";
 
 let ModalPost = (props) => {
     const { data, onBgClick } = props;
@@ -29,6 +30,10 @@ let ModalPost = (props) => {
                 transition={{ type: "spring", velocity: 15 }}
                 className="main-box transition-all z-40 fixed bg-white rounded-3xl lg:flex-row lg:h-4/5 lg:w-2/3 w-4/5 table lg:flex flex-col"
             >
+                <CloseSvg
+                    onClick={() => onBgClick(null)}
+                    className="cursor-pointer absolute top-0 right-0 m-4 opacity-80 lg:opacity-100 lg:m-6 w-6 h-6 fill-current close text-white lg:text-gray-900  "
+                />
                 <img
                     src={imgUrl}
                     className=" rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 object-right lg:object-right-bottom h-56 lg:h-full object-cover"
