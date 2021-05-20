@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import "./ModalPost.css";
 import { ReactComponent as CloseSvg } from "./close.svg";
+import { useState } from "react";
+import { ReactComponent as LoadingIcon } from "./loading.svg";
 
 let ModalPost = (props) => {
     const { data, onBgClick } = props;
+
     let UInfo = null;
     if (!!data.university) {
         UInfo = (
@@ -21,6 +24,8 @@ let ModalPost = (props) => {
         );
     }
     let imgUrl = "assets/bigImages/" + data.number + ".JPG";
+
+    const [imgIsLoaded, setImgIsLoaded] = useState(false);
     return (
         <div className="flex z-40 items-center justify-center fixed w-screen h-screen">
             <motion.div
@@ -34,12 +39,18 @@ let ModalPost = (props) => {
                     onClick={() => onBgClick(null)}
                     className="cursor-pointer absolute top-0 right-0 bg-gray-500 lg:bg-transparent bg-opacity-40 opacity-80 lg:opacity-100 box-content p-2 lg:p-0 rounded-full lg:rounded-none m-2 lg:m-6 w-6 h-6 fill-current close text-white lg:text-gray-900  "
                 />
-                <img
-                    src={imgUrl}
-                    alt={data.name + " " + data.sirname}
-                    className=" modal-img bg-gray-700 object-bottom lg:object-right-bottom rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 h-56 lg:h-full object-cover"
-                />
-
+                <div className="modal-img relative bg-gray-700 rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 h-56 lg:h-full ">
+                    <img
+                        src={imgUrl}
+                        alt={data.name + " " + data.sirname}
+                        onLoad={() => setImgIsLoaded(true)}
+                        className=" object-cover z-10 object-bottom lg:object-right-bottom w-full h-full rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none"
+                    />
+                    <LoadingIcon
+                        className="h-24 w-24 loading-icon"
+                        style={imgIsLoaded ? { visibility: "hidden" } : { visibility: "visible" }}
+                    />
+                </div>
                 <div className="grid content-center lg:flex-1 lg:flex-grow-1 transition-all pb-5">
                     <div className="name flex flex-col items-center  my-3 lg:justify-center transition-all">
                         <span className="firstname lg:text-7xl text-5xl text-center">
