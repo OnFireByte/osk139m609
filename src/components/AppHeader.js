@@ -6,9 +6,9 @@ let AppHeader = (props) => {
 
     return (
         <div className="AppHeader z-10 shadow-md fixed w-full m-0 h-24 p-10 top-0 flex justify-between items-center">
-            <h1 className="transition-all font-bold text-3xl lg:text-4xl text-white">
+            <span className="transition-all header-text text-3xl md:text-4xl text-white">
                 OSK139 / M609
-            </h1>
+            </span>
             <Find value={findValue} onValueChange={onFindValueChange} />
         </div>
     );
