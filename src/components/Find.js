@@ -3,8 +3,8 @@ import { ReactComponent as FindSvg } from "./find.svg";
 let Find = (props) => {
     const { value, onValueChange } = props;
     return (
-        <div className="find transition-all lg:w-5/12 w-2/3">
-            <label className=" find-label transition-all find-icon z-10 flex justify-center items-center focus-within:text-blue-50 text-gray-400 bg-gray-700 h-14 rounded-xl pl-3 shadow-4xl">
+        <div className="find">
+            <label className=" find-label">
                 <FindSvg fill="currentColor" className="icon w-6 h-6 transition-all" />
                 <input
                     type="text"
