@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 let Card = (props) => {
     const { data, onCardClick } = props;
 
@@ -16,7 +17,14 @@ let Card = (props) => {
     }
 
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0, scale: 0.75, y: -25, rotate: -15 }}
+            animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{
+                opacity: { duration: 0.2, ease: "easeInOut" },
+                default: { duration: 0.15 },
+            }}
             onClick={() => onCardClick(data)}
             className="transition-all cursor-pointer flex flex-col bg-white w-2/5 md:w-54 lg:w-72 xl:w-80 rounded-2xl m-2 max-h-96 md:m-4 p-0 shadow-xl text-gray-900"
         >
@@ -36,7 +44,7 @@ let Card = (props) => {
                 </div>
                 {Uinfo}
             </div>
-        </div>
+        </motion.div>
     );
 };
 
