@@ -82,7 +82,7 @@ function App() {
     }
 
     return (
-        <div className="App  min-h-screen bg-blue-300 bg-gradient-to-tr from-pink-200 dark:bg-gad-dark dark:via-gad-mid  dark:from-gad-light">
+        <div className="App  min-h-screen bg-blue-300 bg-gradient-to-bl from-pink-200 dark:bg-gad-dark dark:via-gad-mid  dark:from-gad-light">
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <AnimatePresence>
                 {modal && (
