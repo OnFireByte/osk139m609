@@ -6,8 +6,10 @@ import ModalPost from "./components/ModalPost";
 import { AnimatePresence } from "framer-motion";
 import { readString } from "react-papaparse";
 import { ReactComponent as LoadingIcon } from "./components/loading.svg";
+import { useTheme } from "react-hook-tailwind-darkmode";
 
 function App() {
+    const { changeTheme } = useTheme();
     const [users, setUsers] = useState([]);
 
     async function fetchData() {
@@ -54,7 +56,6 @@ function App() {
         }
         return result;
     });
-
     const [modal, setModal] = useState(false);
     const onCardOpenClick = (theCard) => {
         setModal(theCard);
@@ -69,24 +70,30 @@ function App() {
     );
     if (filteredDatas.length === 0 && users.length != 0) {
         checkCardElement = (
-            <div className="text-6xl text-gray-800 transition-all h-screen w-full flex items-center justify-center">
+            <div className="text-6xl dark:text-white text-gray-900 transition-all h-screen w-full flex items-center justify-center">
                 Nothing found, Sorry.
             </div>
         );
     }
     if (users.length == 0) {
         checkCardElement = (
-            <div className="text-6xl text-gray-800 transition-all h-screen w-full flex items-center justify-center">
-                <LoadingIcon stroke="rgba(31, 41, 55,1)" className="w-32 h-32" />
+            <div className=" transition-all h-screen w-full flex items-center justify-center">
+                <LoadingIcon className="w-32 h-32 fill-current text-gray-900 dark:text-white" />
             </div>
         );
     }
 
     return (
-        <div className="App  min-h-screen">
+        <div className="App  min-h-screen bg-blue-300 bg-gradient-to-tr from-pink-200 dark:bg-gad-dark dark:via-gad-mid  dark:from-gad-light">
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <AnimatePresence>
-                {modal && <ModalPost data={modal} onBgClick={onCardOpenClick} />}
+                {modal && (
+                    <ModalPost
+                        data={modal}
+                        onBgClick={onCardOpenClick}
+                        //onLightChange={() => changeTheme()}
+                    />
+                )}
             </AnimatePresence>
             <div className="main">{checkCardElement}</div>
         </div>

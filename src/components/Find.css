@@ -1,5 +1,5 @@
 .find {
-    @apply transition-all lg:w-5/12 w-2/3;
+    @apply transition-all lg:w-5/12 w-2/3 flex items-center;
 }
 
 .find-label {
@@ -11,4 +11,8 @@
     box-shadow: -4px -4px 8px rgba(70, 70, 70, 0.1), 4px 4px 8px rgba(10, 10, 10, 0.1),
         inset -12px -12px 24px rgba(70, 70, 70, 0.1), inset 12px 12px 24px rgba(10, 10, 10, 0.1);
     border: 2px solid rgba(239, 246, 255, 0.5);
+}
+.group:hover .icon {
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out;
 }
