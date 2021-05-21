@@ -55,7 +55,6 @@ let ModalPost = (props) => {
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0 }}
-                    transition={{ type: "spring" }}
                     className="grid content-center lg:flex-1 lg:flex-grow-1 transition-all pb-5"
                 >
                     <div className="name flex flex-col items-center  my-3 lg:justify-center transition-all">
