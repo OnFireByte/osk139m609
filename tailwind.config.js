@@ -10,6 +10,11 @@ module.exports = {
             spacing: {
                 54: "13.5rem",
             },
+            colors: {
+                "gad-dark": "#243c5a",
+                "gad-mid": "#203A43",
+                "gad-light": "#2C5364",
+            },
         },
     },
     variants: {
@@ -17,4 +22,5 @@ module.exports = {
         transitionProperty: ["responsive", "motion-safe", "motion-reduce"],
     },
     plugins: [],
+    darkMode: "class",
 };
