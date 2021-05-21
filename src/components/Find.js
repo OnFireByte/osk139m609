@@ -34,12 +34,11 @@ let Find = (props) => {
                     }}
                 />
             </label>
-            <div className="group div-light cursor-pointer shadow-xl hover:text-gray-900 w-14 h-14 transition-all hover:bg-gray-50 text-white bg-gray-700 box-border p-3 rounded-xl">
-                <LightSvg
-                    fill="currentColor"
-                    className="transition-all icon-light"
-                    onClick={() => toggleTheme()}
-                />
+            <div
+                onClick={() => toggleTheme()}
+                className="group div-light cursor-pointer shadow-xl hover:text-gray-900 w-14 h-14 transition-all hover:bg-gray-50 text-white bg-gray-700 box-border p-3 rounded-xl"
+            >
+                <LightSvg fill="currentColor" className="transition-all icon-light" />
             </div>
         </div>
     );
