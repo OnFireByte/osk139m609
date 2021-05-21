@@ -1,10 +1,25 @@
-import { useTheme } from "react-hook-tailwind-darkmode";
+import { useState } from "react";
 import "./Find.css";
 import { ReactComponent as FindSvg } from "./find.svg";
 import { ReactComponent as LightSvg } from "./light.svg";
+
 let Find = (props) => {
-    const { value, onValueChange, onThemeChange } = props;
-    const { changeTheme } = useTheme();
+    const { value, onValueChange } = props;
+
+    const [isDark, setIsDark] = useState(true);
+
+    const toggleTheme = () => setIsDark(!isDark);
+    localStorage.theme = isDark ? "dark" : "light";
+    if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+        isDark === "dark"
+    ) {
+        document.documentElement.classList.add("dark");
+    } else {
+        document.documentElement.classList.remove("dark");
+    }
+
     return (
         <div className="find">
             <label className=" find-label flex-grow flex-1 mr-2">
@@ -19,11 +34,11 @@ let Find = (props) => {
                     }}
                 />
             </label>
-            <div className="group cursor-pointer shadow-xl hover:text-gray-900 w-14 h-14 transition-all hover:bg-gray-50 text-white bg-gray-700 box-border p-3 rounded-xl">
+            <div className="group div-light cursor-pointer shadow-xl hover:text-gray-900 w-14 h-14 transition-all hover:bg-gray-50 text-white bg-gray-700 box-border p-3 rounded-xl">
                 <LightSvg
                     fill="currentColor"
                     className="transition-all icon-light"
-                    onClick={() => changeTheme()}
+                    onClick={() => toggleTheme()}
                 />
             </div>
         </div>

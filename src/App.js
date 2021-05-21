@@ -6,10 +6,8 @@ import ModalPost from "./components/ModalPost";
 import { AnimatePresence } from "framer-motion";
 import { readString } from "react-papaparse";
 import { ReactComponent as LoadingIcon } from "./components/loading.svg";
-import { useTheme } from "react-hook-tailwind-darkmode";
 
 function App() {
-    const { changeTheme } = useTheme();
     const [users, setUsers] = useState([]);
 
     async function fetchData() {
@@ -68,14 +66,14 @@ function App() {
     let checkCardElement = (
         <div className="main-list min-h-screen pt-24 pb-3 transition-all ">{cardElements}</div>
     );
-    if (filteredDatas.length === 0 && users.length != 0) {
+    if (filteredDatas.length === 0 && users.length !== 0) {
         checkCardElement = (
             <div className="text-6xl dark:text-white text-gray-900 transition-all h-screen w-full flex items-center justify-center">
                 Nothing found, Sorry.
             </div>
         );
     }
-    if (users.length == 0) {
+    if (users.length === 0) {
         checkCardElement = (
             <div className=" transition-all h-screen w-full flex items-center justify-center">
                 <LoadingIcon className="w-32 h-32 fill-current text-gray-900 dark:text-white" />
