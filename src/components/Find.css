@@ -12,7 +12,7 @@
         inset -12px -12px 24px rgba(70, 70, 70, 0.1), inset 12px 12px 24px rgba(10, 10, 10, 0.1);
     border: 2px solid rgba(239, 246, 255, 0.5);
 }
-.group:hover .icon {
+.group:hover .icon-light {
     transform: rotate(180deg);
     transition: all 0.3s ease-in-out;
 }
