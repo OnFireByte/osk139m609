@@ -83,7 +83,7 @@ function App() {
     }
 
     return (
-        <div className="App bg-pink-100 bg-gradient-to-b from-blue-200 min-h-screen">
+        <div className="App  min-h-screen">
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <AnimatePresence>
                 {modal && <ModalPost data={modal} onBgClick={onCardOpenClick} />}
