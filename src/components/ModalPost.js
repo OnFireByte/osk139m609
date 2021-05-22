@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
 import "./ModalPost.css";
 import { ReactComponent as CloseSvg } from "./close.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ReactComponent as LoadingIcon } from "./loading.svg";
 
 let ModalPost = (props) => {
     const { data, onBgClick } = props;
+
+    useEffect(() => {
+        document.documentElement.style.overflow = "hidden";
+        return () => {
+            document.documentElement.style.overflow = "auto";
+        };
+    });
 
     let UInfo = null;
     if (!!data.university) {
@@ -47,7 +54,7 @@ let ModalPost = (props) => {
                         className=" object-cover object-bottom lg:object-right-bottom w-full h-full rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none"
                     />
                     <LoadingIcon
-                        className="h-36 w-36 loading-icon"
+                        className="h-36 w-36 loading-icon text-white"
                         style={imgIsLoaded ? { visibility: "hidden" } : { visibility: "visible" }}
                     />
                 </div>
