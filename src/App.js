@@ -32,6 +32,7 @@ function App() {
         let sirname = data.sirname.toLowerCase();
         let university = data.university.toLowerCase();
         let faculty = data.faculty.toLowerCase();
+        let major = data.major.toLowerCase();
         let course = data.course.toLowerCase();
         let keywords = data.keywords?.split(" ").map((keyword) => keyword.toLowerCase());
 
@@ -45,6 +46,7 @@ function App() {
                 sirname.includes(finds[i]) ||
                 university.includes(finds[i]) ||
                 faculty.includes(finds[i]) ||
+                major.includes(finds[i]) ||
                 course.includes(finds[i]) ||
                 keywords?.some((keyword) => keyword.includes(finds[i].toLowerCase()))
             ) {
@@ -82,7 +84,7 @@ function App() {
     }
 
     return (
-        <div className="App  min-h-screen bg-blue-300 bg-gradient-to-bl from-pink-200 dark:bg-gad-dark dark:via-gad-mid  dark:from-gad-light">
+        <div className="App min-h-screen bg-blue-300 bg-gradient-to-bl from-pink-200 dark:bg-gad-dark dark:via-gad-mid  dark:from-gad-light">
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <AnimatePresence>
                 {modal && (
