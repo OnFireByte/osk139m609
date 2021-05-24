@@ -6,7 +6,7 @@ import { ReactComponent as LightSvg } from "./light.svg";
 let Find = (props) => {
     const { value, onValueChange } = props;
 
-    const [isDark, setIsDark] = useState(true);
+    const [isDark, setIsDark] = useState(localStorage.theme == "dark" ? true : false);
 
     const toggleTheme = () => setIsDark(!isDark);
     localStorage.theme = isDark ? "dark" : "light";
@@ -70,7 +70,7 @@ let Find = (props) => {
             </label>
             <div
                 onClick={() => toggleTheme()}
-                className="group div-light cursor-pointer shadow-xl hover:text-gray-900 w-14 h-14 transition-all hover:bg-gray-50 text-white bg-gray-700 box-border p-3 rounded-xl"
+                className="div-light cursor-pointer shadow-xl text-gray-900 w-14 h-14 transition-all bg-gray-50 dark:text-white dark:bg-gray-700 box-border p-3 rounded-xl"
             >
                 <LightSvg fill="currentColor" className="transition-all icon-light" />
             </div>
