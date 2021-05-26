@@ -6,7 +6,7 @@ import { ReactComponent as LightSvg } from "./light.svg";
 let Find = (props) => {
     const { value, onValueChange } = props;
 
-    const [isDark, setIsDark] = useState(localStorage.theme == "dark" ? true : false);
+    const [isDark, setIsDark] = useState(localStorage.theme === "dark" ? true : false);
 
     const toggleTheme = () => setIsDark(!isDark);
     localStorage.theme = isDark ? "dark" : "light";
