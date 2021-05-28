@@ -25,7 +25,9 @@ let ModalPost = (props) => {
                 <hr className="border-2 border-blue-400 bg-blue-400 rounded-full h-0 w-1/3 my-2 p-0 mx-auto" />
                 <span className="faculty-info lg:text-2xl text-xl text-center">{data.faculty}</span>
                 <span className="major lg:text-2xl text-xl text-center">
-                    {!!data.major ? data.major + " | ภาค" + data.course : "ภาค" + data.course}
+                    {!!data.major && data.major !== "-"
+                        ? data.major + " | ภาค" + data.course
+                        : "ภาค" + data.course}
                 </span>
             </div>
         );
