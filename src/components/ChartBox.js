@@ -32,7 +32,6 @@ let ChartBox = (props) => {
         const gradient = ctx.createLinearGradient(0, 0, 100, 0);
 
         return {
-            backgroundColor: gradient,
             labels: [
                 "วิศวะ",
                 "แพทย์",
@@ -67,6 +66,9 @@ let ChartBox = (props) => {
     };
 
     const chartDataOption = {
+        hoverOffset: 4,
+        borderWidth: 3,
+        responsive: true,
         maintainAspectRatio: false,
         cutout: "70%",
         plugins: {

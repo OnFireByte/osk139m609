@@ -101,7 +101,7 @@ function App() {
                 <ChartBox />
                 <div className="text-6xl dark:text-white text-gray-900 transition-all w-full flex items-center justify-center">
                     <img
-                        src="/assets/all.jpg"
+                        src="assets/all.jpg"
                         alt="ทำเนียบ"
                         className="lg:w-2/3 w-11/12 lg:m-12 m-4 rounded-3xl shadow-2xl loading=lazy"
                     />
