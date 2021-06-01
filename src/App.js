@@ -6,6 +6,7 @@ import ModalPost from "./components/ModalPost";
 import { AnimatePresence } from "framer-motion";
 import { readString } from "react-papaparse";
 import { ReactComponent as LoadingIcon } from "./components/loading.svg";
+import ChartBox from "./components/ChartBox";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -95,7 +96,17 @@ function App() {
                     />
                 )}
             </AnimatePresence>
-            <div className="main">{checkCardElement}</div>
+            <div className="main">
+                {checkCardElement}
+                <ChartBox />
+                <div className="text-6xl dark:text-white text-gray-900 transition-all w-full flex items-center justify-center">
+                    <img
+                        src="/assets/all.jpg"
+                        alt="ทำเนียบ"
+                        className="lg:w-2/3 w-11/12 lg:m-12 m-4 rounded-3xl shadow-2xl loading=lazy"
+                    />
+                </div>
+            </div>
         </div>
     );
 }
