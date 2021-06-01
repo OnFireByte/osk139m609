@@ -98,7 +98,7 @@ let ChartBox = (props) => {
     };
     return (
         <>
-            <div className="transition-all grid lg:grid-cols-3 grid-cols-1 lg:py-12 lg:px-12 xl:px-24 mx-auto bg-white dark:bg-gray-800 rounded-3xl m-12 lg:w-2/3 w-4/5">
+            <div className="transition-all bg-white grid shadow-2xl lg:grid-cols-3 grid-cols-1 lg:py-12 lg:px-12 xl:px-24 mx-auto dark:bg-gray-800 rounded-3xl m-12 lg:w-2/3 w-4/5">
                 <div className="order-1 w-full h-82 items-center justify-center p-8 lg:p-0">
                     <Doughnut
                         data={uniChartData}

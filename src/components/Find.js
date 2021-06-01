@@ -72,7 +72,7 @@ let Find = (props) => {
                 onClick={() => toggleTheme()}
                 className="div-light cursor-pointer shadow-xl text-gray-900 w-14 h-14 transition-all bg-gray-50 dark:text-white dark:bg-gray-700 box-border p-3 rounded-xl"
             >
-                <LightSvg fill="currentColor" className="transition-all icon-light" />
+                <LightSvg fill="currentColor" className=" icon-light" />
             </div>
         </div>
     );
