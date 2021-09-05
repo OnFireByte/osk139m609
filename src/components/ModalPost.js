@@ -7,32 +7,23 @@ import { ReactComponent as LoadingIcon } from "./loading.svg";
 let ModalPost = (props) => {
     const { data, onBgClick } = props;
 
-    useEffect(() => {
-        document.documentElement.style.overflow = "hidden";
-        return () => {
-            document.documentElement.style.overflow = "auto";
-        };
-    });
+    const UInfo = (
+        <div className="flex flex-col items-center w-full transition-all">
+            <hr className="border-2 border-pink-400 bg-pink-400 rounded-full h-0 w-2/3 my-4 p-0 mx-auto" />
+            <span className="university lg:text-4xl text-3xl w-4/5 text-center">
+                {data.university}
+            </span>
+            <hr className="border-2 border-blue-400 bg-blue-400 rounded-full h-0 w-1/3 my-2 p-0 mx-auto" />
+            <span className="faculty-info lg:text-2xl text-xl text-center">{data.faculty}</span>
+            <span className="major lg:text-2xl text-xl text-center">
+                {!!data.major && data.major !== "-"
+                    ? data.major + " | ภาค" + data.course
+                    : "ภาค" + data.course}
+            </span>
+        </div>
+    );
 
-    let UInfo = null;
-    if (!!data.university) {
-        UInfo = (
-            <div className="flex flex-col items-center w-full transition-all">
-                <hr className="border-2 border-pink-400 bg-pink-400 rounded-full h-0 w-2/3 my-4 p-0 mx-auto" />
-                <span className="university lg:text-4xl text-3xl w-4/5 text-center">
-                    {data.university}
-                </span>
-                <hr className="border-2 border-blue-400 bg-blue-400 rounded-full h-0 w-1/3 my-2 p-0 mx-auto" />
-                <span className="faculty-info lg:text-2xl text-xl text-center">{data.faculty}</span>
-                <span className="major lg:text-2xl text-xl text-center">
-                    {!!data.major && data.major !== "-"
-                        ? data.major + " | ภาค" + data.course
-                        : "ภาค" + data.course}
-                </span>
-            </div>
-        );
-    }
-    let imgUrl = "assets/bigImages/" + data.number + ".JPG";
+    const imgUrl = "assets/bigImages/" + data.number + ".JPG";
 
     const [imgIsLoaded, setImgIsLoaded] = useState(false);
     return (

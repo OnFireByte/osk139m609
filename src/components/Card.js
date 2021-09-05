@@ -3,19 +3,15 @@ import "./Card.css";
 let Card = (props) => {
     const { data, onCardClick } = props;
 
-    let Uinfo = "";
+    const imgUrl = "assets/smallImages/" + data.number.toString() + ".JPG";
 
-    let imgUrl = "assets/smallImages/" + data.number.toString() + ".JPG";
-
-    if (!!data.university) {
-        Uinfo = (
-            <div className="info text-md md:text-lg lg:text-xl mb-3 dark:text-gray-200 text-gray-700 flex flex-col md:justify-center">
-                <span className="text-center ">{data.university}</span>
-                <hr className="border-b-2 w-2/3 my-o mx-auto " />
-                <span className="text-center">{data.faculty}</span>
-            </div>
-        );
-    }
+    const Uinfo = (
+        <div className="info text-md md:text-lg lg:text-xl mb-3 dark:text-gray-200 text-gray-700 flex flex-col md:justify-center">
+            <span className="text-center ">{data.university}</span>
+            <hr className="border-b-2 w-2/3 my-o mx-auto " />
+            <span className="text-center">{data.faculty}</span>
+        </div>
+    );
 
     return (
         <motion.div

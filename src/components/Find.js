@@ -9,6 +9,7 @@ let Find = (props) => {
     const [isDark, setIsDark] = useState(localStorage.theme === "dark" ? true : false);
 
     const toggleTheme = () => setIsDark(!isDark);
+
     localStorage.theme = isDark ? "dark" : "light";
     if (
         localStorage.theme === "dark" ||

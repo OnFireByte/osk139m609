@@ -26,6 +26,7 @@ function App() {
     }, []);
 
     const [find, setFind] = useState("");
+
     const filteredDatas = users.filter((data) => {
         let number = data.number.toString();
         let numberID = data.studentID.toString();
@@ -39,24 +40,27 @@ function App() {
 
         let result = true;
         let finds = find.split(" ");
-        for (let i = 0; i < finds.length; i++) {
+
+        finds.forEach((findKeyword) => {
             if (
-                number.includes(finds[i]) ||
-                numberID.includes(finds[i]) ||
-                name.includes(finds[i]) ||
-                sirname.includes(finds[i]) ||
-                university.includes(finds[i]) ||
-                faculty.includes(finds[i]) ||
-                major.includes(finds[i]) ||
-                course.includes(finds[i]) ||
-                keywords?.some((keyword) => keyword.includes(finds[i].toLowerCase()))
+                !(
+                    number.includes(findKeyword) ||
+                    numberID.includes(findKeyword) ||
+                    name.includes(findKeyword) ||
+                    sirname.includes(findKeyword) ||
+                    university.includes(findKeyword) ||
+                    faculty.includes(findKeyword) ||
+                    major.includes(findKeyword) ||
+                    course.includes(findKeyword) ||
+                    keywords?.some((keyword) => keyword.includes(findKeyword.toLowerCase()))
+                )
             ) {
-            } else {
                 result = false;
             }
-        }
+        });
         return result;
     });
+
     const [modal, setModal] = useState(false);
     const onCardOpenClick = (theCard) => {
         setModal(theCard);
@@ -66,23 +70,25 @@ function App() {
         <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
     ));
 
-    let checkCardElement = (
-        <div className="main-list min-h-screen pt-24 pb-3 transition-all ">{cardElements}</div>
-    );
-    if (filteredDatas.length === 0 && users.length !== 0) {
-        checkCardElement = (
-            <div className="text-6xl dark:text-white text-gray-900 transition-all h-screen w-full flex items-center justify-center">
-                Nothing found, Sorry.
-            </div>
+    const checkCardElement = () => {
+        if (filteredDatas.length === 0 && users.length !== 0) {
+            return (
+                <div className="text-6xl dark:text-white text-gray-900 transition-all h-screen w-full flex items-center justify-center">
+                    Nothing found, Sorry.
+                </div>
+            );
+        } else if (users.length === 0) {
+            return (
+                <div className=" transition-all h-screen w-full flex items-center justify-center">
+                    <LoadingIcon className="w-32 h-32 fill-current text-gray-900 dark:text-white" />
+                </div>
+            );
+        }
+
+        return (
+            <div className="main-list min-h-screen pt-24 pb-3 transition-all ">{cardElements}</div>
         );
-    }
-    if (users.length === 0) {
-        checkCardElement = (
-            <div className=" transition-all h-screen w-full flex items-center justify-center">
-                <LoadingIcon className="w-32 h-32 fill-current text-gray-900 dark:text-white" />
-            </div>
-        );
-    }
+    };
 
     return (
         <div className="App min-h-screen bg-blue-300 bg-gradient-to-bl from-pink-200 dark:bg-gad-dark dark:via-gad-mid  dark:from-gad-light">
@@ -97,7 +103,7 @@ function App() {
                 )}
             </AnimatePresence>
             <div className="main">
-                {checkCardElement}
+                {checkCardElement()}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 1440 320"
