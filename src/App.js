@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 import { readString } from "react-papaparse";
 import { ReactComponent as LoadingIcon } from "./components/loading.svg";
 import ChartBox from "./components/ChartBox";
+import stringSimilarity from "string-similarity";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -17,7 +18,6 @@ function App() {
         ).then((r) => r.text());
 
         const datasJson = readString(datasCSV, { header: true }).data;
-        console.log(datasJson);
         setUsers(datasJson);
     }
 
@@ -52,7 +52,22 @@ function App() {
                     faculty.includes(findKeyword) ||
                     major.includes(findKeyword) ||
                     course.includes(findKeyword) ||
-                    keywords?.some((keyword) => keyword.includes(findKeyword.toLowerCase()))
+                    keywords?.some((keyword) => keyword.includes(findKeyword.toLowerCase())) ||
+                    number.includes(findKeyword) ||
+                    stringSimilarity.compareTwoStrings(findKeyword, numberID) >= 0.75 ||
+                    stringSimilarity.compareTwoStrings(findKeyword, name) >= 0.5 ||
+                    stringSimilarity.compareTwoStrings(findKeyword, sirname) >= 0.5 ||
+                    stringSimilarity.compareTwoStrings(findKeyword, university) >= 0.5 ||
+                    stringSimilarity.compareTwoStrings(findKeyword, faculty) >= 0.75 ||
+                    stringSimilarity.compareTwoStrings(findKeyword, major) >= 0.75 ||
+                    stringSimilarity.compareTwoStrings(findKeyword, course) >= 0.75 ||
+                    keywords?.some(
+                        (keyword) =>
+                            stringSimilarity.compareTwoStrings(
+                                findKeyword.toLowerCase(),
+                                keyword
+                            ) >= 0.75
+                    )
                 )
             ) {
                 result = false;

@@ -1,5 +1,5 @@
 {
-    "homepage": "http://onfirebyte.github.io/osk139m609/",
+    "_homepage": "http://onfirebyte.github.io/osk139m609/",
     "name": "osk139m609",
     "version": "0.1.0",
     "private": true,
@@ -16,6 +16,7 @@
         "react-dom": "^17.0.2",
         "react-papaparse": "^3.14.0",
         "react-scripts": "4.0.3",
+        "string-similarity": "^4.0.4",
         "web-vitals": "^1.1.2"
     },
     "scripts": {
