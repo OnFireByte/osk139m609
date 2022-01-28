@@ -24,3 +24,4 @@ yarn-error.log*
 
 /public/assets-big
 /public/assets-resize
+.vercel
