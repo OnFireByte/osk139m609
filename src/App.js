@@ -129,7 +129,7 @@ function App() {
                         d="M0,288L48,250.7C96,213,192,139,288,133.3C384,128,480,192,576,224C672,256,768,256,864,218.7C960,181,1056,107,1152,74.7C1248,43,1344,53,1392,58.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                     ></path>
                 </svg>
-                <div className="w-screen transition-all bg-gradient-to-b from-white to-pink-100 footer py-6">
+                <div className="w-full transition-all bg-gradient-to-b from-white to-pink-100 footer py-6">
                     <ChartBox />
                     <div className="text-6xl  dark:text-white text-gray-900 transition-all w-full flex items-center justify-center">
                         <img
