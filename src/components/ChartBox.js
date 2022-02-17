@@ -98,8 +98,8 @@ let ChartBox = (props) => {
     };
     return (
         <>
-            <div className="transition-all bg-white grid shadow-2xl lg:grid-cols-3 grid-cols-1 lg:py-12 lg:px-12 xl:px-24 mx-auto dark:bg-gray-800 rounded-3xl m-12 lg:w-2/3 w-4/5">
-                <div className="order-1 w-full h-82 items-center justify-center p-8 lg:p-0">
+            <div className="transition-all bg-white grid shadow-2xl lg:grid-cols-3 lg:gap-y-12 grid-cols-1 lg:py-12 lg:px-12 xl:px-24 mx-auto dark:bg-gray-800 rounded-3xl m-8 lg:w-2/3 w-4/5">
+                <div className="order-1 w-full h-72 items-center justify-center p-8 lg:p-0">
                     <Doughnut
                         data={uniChartData}
                         className="h-full w-full"
@@ -112,7 +112,7 @@ let ChartBox = (props) => {
                         }}
                     />
                 </div>
-                <div className="order-2 col-span-2 xl:text-5xl text-3xl flex items-center dark:text-white text-gray-900 lg:p-12 p-6 w-full">
+                <div className="order-2 col-span-2 xl:text-4xl text-3xl flex items-center dark:text-white text-gray-900 lg:p-6 p-6 w-full">
                     <div className="w-4/5 mx-auto ">
                         <span className="text-4xl">
                             สถิติ: <br />
@@ -132,7 +132,7 @@ let ChartBox = (props) => {
                     </div>
                 </div>
 
-                <div className="order-4 lg:order-3 col-span-2 xl:text-5xl text-3xl flex items-center dark:text-white text-gray-900 p-6 lg:p-12 w-full">
+                <div className="order-4 lg:order-3 col-span-2 xl:text-4xl text-3xl flex items-center dark:text-white text-gray-900 p-6 lg:p-12 w-full">
                     <div className="mx-auto w-full">
                         <div className="grid grid-cols-2 ">
                             <div>วิศวะ : 19 คน</div>
@@ -149,7 +149,7 @@ let ChartBox = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="order-3 lg:order-4 w-full h-82 items-center justify-center p-8 lg:p-0">
+                <div className="order-3 lg:order-4 w-full h-72 items-center justify-center p-8 lg:p-0">
                     <Doughnut
                         className="h-full w-full"
                         data={facultyChartData}
