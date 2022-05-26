@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import "./ModalPost.css";
 import { ReactComponent as CloseSvg } from "./close.svg";
-import { useState} from "react";
+import { useState } from "react";
 import { ReactComponent as LoadingIcon } from "./loading.svg";
 
 let ModalPost = (props) => {
@@ -16,7 +16,7 @@ let ModalPost = (props) => {
             <hr className="border-2 border-blue-400 bg-blue-400 rounded-full h-0 w-1/3 my-2 p-0 mx-auto" />
             <span className="faculty-info lg:text-2xl text-xl text-center">{data.faculty}</span>
             <span className="major lg:text-2xl text-xl text-center">
-                {!!data.major && data.major !== "-"
+                {data.major && data.major !== "-"
                     ? data.major + " | ภาค" + data.course
                     : "ภาค" + data.course}
             </span>
@@ -27,12 +27,19 @@ let ModalPost = (props) => {
 
     const [imgIsLoaded, setImgIsLoaded] = useState(false);
     return (
-        <div className="flex z-40 items-center justify-center fixed w-screen h-screen">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => onBgClick(null)}
+            className="w-screen z-30 cursor-pointer items-center justify-center flex h-screen fixed transition-none bg-gray-900 bg-opacity-95"
+        >
             <motion.div
                 initial={{ opacity: 0, scale: 0.75 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0 }}
-                className="main-box transition-all z-40 fixed bg-white dark:bg-gray-800 rounded-3xl lg:flex-row lg:h-2/3 xl:h-4/5 lg:w-4/5 w-4/5 table lg:flex flex-col"
+                onClick={(e) => e.stopPropagation()}
+                className="main-box transition-all hover:cursor-auto z-40 fixed bg-white dark:bg-gray-800 rounded-3xl lg:flex-row lg:h-2/3 xl:h-4/5 lg:w-4/5 w-4/5 table lg:flex flex-col"
             >
                 <CloseSvg
                     onClick={() => onBgClick(null)}
@@ -66,14 +73,7 @@ let ModalPost = (props) => {
                     </div>
                 </div>
             </motion.div>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => onBgClick(null)}
-                className="w-screen z-30 cursor-pointer h-screen fixed transition-none bg-gray-900 bg-opacity-95"
-            />
-        </div>
+        </motion.div>
     );
 };
 
