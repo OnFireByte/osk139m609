@@ -83,13 +83,7 @@ function App() {
     };
 
     const checkCardElement = () => {
-        if (filteredDatas.length === 0 && users.length !== 0) {
-            return (
-                <div className="text-6xl dark:text-white text-gray-900 transition-all h-screen w-full flex items-center justify-center">
-                    Nothing found, Sorry.
-                </div>
-            );
-        } else if (users.length === 0) {
+        if (users.length === 0) {
             return (
                 <div className=" transition-all h-screen w-full flex items-center justify-center">
                     <LoadingIcon className="w-32 h-32 fill-current text-gray-900 dark:text-white" />
@@ -99,11 +93,16 @@ function App() {
 
         return (
             <motion.div className="main-list min-h-screen pt-24 pb-3 items-center" layout>
-                {filteredDatas.map((data) => (
-                    <AnimatePresence>
-                        <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
-                    </AnimatePresence>
-                ))}
+                <AnimatePresence>
+                    {(filteredDatas.length !== 0 &&
+                        filteredDatas.map((data) => (
+                            <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
+                        ))) || (
+                        <div className="text-6xl dark:text-white text-gray-900">
+                            Nothing found, Sorry.
+                        </div>
+                    )}
+                </AnimatePresence>
             </motion.div>
         );
     };
@@ -128,7 +127,7 @@ function App() {
                     className="dark:text-gray-900 text-white fill-current"
                 >
                     <path
-                        fill-opacity="1"
+                        fillOpacity="1"
                         d="M0,288L48,250.7C96,213,192,139,288,133.3C384,128,480,192,576,224C672,256,768,256,864,218.7C960,181,1056,107,1152,74.7C1248,43,1344,53,1392,58.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
                     ></path>
                 </svg>
