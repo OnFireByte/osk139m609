@@ -1,11 +1,11 @@
-import { AnimatePresence } from "framer-motion";
+
 import React, { useEffect, useState, Suspense } from "react";
 import stringSimilarity from "string-similarity";
 import "./App.css";
 import AppHeader from "./components/AppHeader";
 import Card from "./components/Card";
 import { ReactComponent as LoadingIcon } from "./components/loading.svg";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { dataJson } from "./data.js";
 
 const ChartBox = React.lazy(() => import("./components/ChartBox"));
@@ -99,7 +99,7 @@ function App() {
     };
 
     return (
-        <div className="App min-h-screen bg-blue-300 bg-gradient-to-bl from-pink-200 dark:bg-gad-dark dark:via-gad-mid  dark:from-gad-light">
+        <div className="App min-h-screen bg-blue-300 bg-gradient-to-bl from-pink-200 dark:bg-gad-dark dark:via-gad-mid  dark:from-gad-light transition-colors">
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <AnimatePresence>
                 {modal && (
