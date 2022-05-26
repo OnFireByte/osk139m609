@@ -1,10 +1,27 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Find.css";
 import { ReactComponent as FindSvg } from "./find.svg";
 import { ReactComponent as LightSvg } from "./light.svg";
 
-let Find = (props) => {
-    const { value, onValueChange } = props;
+function debounce(func, timeout = 300) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func.apply(this, args);
+        }, timeout);
+    };
+}
+
+let Find = ({ onValueChange }) => {
+    const inputDebounce = useRef(
+        debounce((nextValue) => {
+            console.log("test 2");
+            onValueChange(nextValue);
+        })
+    ).current;
+
+    const [inputValue, setInputValue] = useState("");
 
     const [isDark, setIsDark] = useState(localStorage.theme === "dark" ? true : false);
 
@@ -63,9 +80,11 @@ let Find = (props) => {
                     type="text"
                     className="find-input w-full transition-all outline-none bg-transparent text-blue-50 px-2 lg:px-4 text-2xl lg:text-3xl"
                     placeholder={inputPlaceholder}
-                    value={value}
+                    value={inputValue}
                     onChange={(event) => {
-                        onValueChange(event.target.value);
+                        setInputValue(event.target.value);
+
+                        inputDebounce(inputValue);
                     }}
                 />
             </label>
