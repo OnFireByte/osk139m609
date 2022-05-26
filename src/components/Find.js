@@ -16,7 +16,6 @@ function debounce(func, timeout = 300) {
 let Find = ({ onValueChange }) => {
     const inputDebounce = useRef(
         debounce((nextValue) => {
-            console.log("test 2");
             onValueChange(nextValue);
         })
     ).current;
@@ -84,7 +83,7 @@ let Find = ({ onValueChange }) => {
                     onChange={(event) => {
                         setInputValue(event.target.value);
 
-                        inputDebounce(inputValue);
+                        inputDebounce(event.target.value);
                     }}
                 />
             </label>
