@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "HelvethaicaMon";
+    src: url(./fonts/HelvethaicaMon75.ttf) format("truetype");
+}
+
+body {
+    font-family: "HelvethaicaMon", "Kanit";
+}
+::-webkit-scrollbar {
+    width: 10px; /* for vertical scrollbars */
+    height: 10px; /* for horizontal scrollbars */
+    background-color: #1f2937;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(55, 65, 81);
+    border-top-left-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(97, 106, 121);
+    border-radius: 5px;
+}

@@ -1,6 +1,6 @@
 module.exports = {
-    purge: ["./src/**/*.html", "./src/**/*.js"],
-    darkMode: false, // or 'media' or 'class'
+    content: ["./src/**/*.html", "./src/**/*.js"],
+    darkMode: "class", // or 'media' or 'class'
     theme: {
         fontFamily: {
             body: ["HelvethaicaMon"],
@@ -22,5 +22,4 @@ module.exports = {
         transitionProperty: ["responsive", "motion-safe", "motion-reduce"],
     },
     plugins: [],
-    darkMode: "class",
 };
