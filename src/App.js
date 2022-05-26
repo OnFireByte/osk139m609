@@ -1,15 +1,15 @@
 import { AnimatePresence } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import stringSimilarity from "string-similarity";
 import "./App.css";
 import AppHeader from "./components/AppHeader";
 import Card from "./components/Card";
-import ChartBox from "./components/ChartBox";
 import { ReactComponent as LoadingIcon } from "./components/loading.svg";
-import ModalPost from "./components/ModalPost";
 import { motion } from "framer-motion";
 import { dataJson } from "./data.js";
 
+const ChartBox = React.lazy(() => import("./components/ChartBox"));
+const ModalPost = React.lazy(() => import("./components/ModalPost"));
 function App() {
     const [users, setUsers] = useState([]);
 
@@ -103,11 +103,13 @@ function App() {
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <AnimatePresence>
                 {modal && (
-                    <ModalPost
-                        data={modal}
-                        onBgClick={onCardOpenClick}
-                        //onLightChange={() => changeTheme()}
-                    />
+                    <Suspense fallback={<></>}>
+                        <ModalPost
+                            data={modal}
+                            onBgClick={onCardOpenClick}
+                            //onLightChange={() => changeTheme()}
+                        />
+                    </Suspense>
                 )}
             </AnimatePresence>
             <div className="main">
@@ -123,7 +125,10 @@ function App() {
                     ></path>
                 </svg>
                 <div className="w-full transition-all bg-gradient-to-b from-white to-pink-100 footer py-6">
-                    <ChartBox />
+                    <Suspense fallback={null}>
+                        <ChartBox />
+                    </Suspense>
+
                     <div className="text-6xl  dark:text-white text-gray-900 transition-all w-full flex items-center justify-center">
                         <img
                             src="assets/all.jpg"
