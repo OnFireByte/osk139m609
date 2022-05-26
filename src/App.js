@@ -1,6 +1,5 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { readString } from "react-papaparse";
 import stringSimilarity from "string-similarity";
 import "./App.css";
 import AppHeader from "./components/AppHeader";
@@ -9,21 +8,13 @@ import ChartBox from "./components/ChartBox";
 import { ReactComponent as LoadingIcon } from "./components/loading.svg";
 import ModalPost from "./components/ModalPost";
 import { motion } from "framer-motion";
+import { dataJson } from "./data.js";
 
 function App() {
     const [users, setUsers] = useState([]);
 
-    async function fetchData() {
-        let datasCSV = await fetch(
-            "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTyNXZNjb1qPTY8eWmIvgsBC4UfASw9QL7DMyPFlKkIzLzXOPS-7GBWQMaGC_JTK75LkHGUjO11JxU/pub?gid=0&single=true&output=csv"
-        ).then((r) => r.text());
-
-        const datasJson = readString(datasCSV, { header: true }).data;
-        setUsers(datasJson);
-    }
-
     useEffect(() => {
-        fetchData();
+        setUsers(dataJson);
     }, []);
 
     const [find, setFind] = useState("");
