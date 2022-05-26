@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { readString } from "react-papaparse";
+import stringSimilarity from "string-similarity";
 import "./App.css";
 import AppHeader from "./components/AppHeader";
 import Card from "./components/Card";
-import ModalPost from "./components/ModalPost";
-import { AnimatePresence } from "framer-motion";
-import { readString } from "react-papaparse";
-import { ReactComponent as LoadingIcon } from "./components/loading.svg";
 import ChartBox from "./components/ChartBox";
-import stringSimilarity from "string-similarity";
+import { ReactComponent as LoadingIcon } from "./components/loading.svg";
+import ModalPost from "./components/ModalPost";
+import { motion } from "framer-motion";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -101,7 +102,13 @@ function App() {
         }
 
         return (
-            <div className="main-list min-h-screen pt-24 pb-3 transition-all ">{cardElements}</div>
+            <AnimatePresence>
+            <motion.div className="main-list min-h-screen pt-24 pb-3 items-center" layout>
+                {filteredDatas.map((data) => (
+                    <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
+                ))}
+            </motion.div>
+            </AnimatePresence>
         );
     };
 

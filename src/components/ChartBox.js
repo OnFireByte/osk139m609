@@ -1,68 +1,87 @@
+import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
-let ChartBox = (props) => {
-    const uniChartData = (canvas) => {
-        const ctx = canvas.getContext("2d");
-        const gradient = ctx.createLinearGradient(0, 0, 100, 0);
+// let ChartBox = (props) => {
+//     const uniChartData = (canvas) => {
+//         const ctx = canvas.getContext("2d");
+//         const gradient = ctx.createLinearGradient(0, 0, 100, 0);
+//         console.log(gradient);
 
-        return {
-            backgroundColor: gradient,
-            labels: ["จุฬา", "บางมด", "วพม.", "มศว", "มก.", "มธ.", "มหิดล", "มอ.", "นมธ.", "มช."],
-            datasets: [
-                {
-                    data: [21, 7, 3, 3, 2, 2, 2, 1, 1, 1],
-                    backgroundColor: [
-                        "#cf7cc2",
-                        "#f08231",
-                        "#2a2d7c",
-                        "#ab0606",
-                        "#006c67",
-                        "#b7301f",
-                        "#17468c",
-                        "#17468c",
-                        "#1e592d",
-                        "#8651a3",
-                    ],
-                },
-            ],
-        };
+//         return {
+//             backgroundColor: gradient,
+//             labels: ["จุฬา", "บางมด", "วพม.", "มศว", "มก.", "มธ.", "มหิดล", "มอ.", "นมธ.", "มช."],
+//             datasets: [
+//                 {
+//                     data: [21, 7, 3, 3, 2, 2, 2, 1, 1, 1],
+//                     backgroundColor: [
+//                         "#cf7cc2",
+//                         "#f08231",
+//                         "#2a2d7c",
+//                         "#ab0606",
+//                         "#006c67",
+//                         "#b7301f",
+//                         "#17468c",
+//                         "#17468c",
+//                         "#1e592d",
+//                         "#8651a3",
+//                     ],
+//                 },
+//             ],
+//         };
+//     };
+
+let ChartBox = (props) => {
+    const uniChartData = {
+        labels: ["จุฬา", "บางมด", "วพม.", "มศว", "มก.", "มธ.", "มหิดล", "มอ.", "นมธ.", "มช."],
+        datasets: [
+            {
+                data: [21, 7, 3, 3, 2, 2, 2, 1, 1, 1],
+                backgroundColor: [
+                    "#cf7cc2",
+                    "#f08231",
+                    "#2a2d7c",
+                    "#ab0606",
+                    "#006c67",
+                    "#b7301f",
+                    "#17468c",
+                    "#17468c",
+                    "#1e592d",
+                    "#8651a3",
+                ],
+            },
+        ],
     };
 
-    const facultyChartData = (canvas) => {
-        const ctx = canvas.getContext("2d");
-        const gradient = ctx.createLinearGradient(0, 0, 100, 0);
-
-        return {
-            labels: [
-                "วิศวะ",
-                "แพทย์",
-                "สถาปัตย์",
-                "เภสัช",
-                "นิติ",
-                "ทันตะ",
-                "อักษร",
-                "เทคนิคการแพทย์",
-                "เศรฐศาสตร์",
-                "สัตวแพทย์",
-                "BBA",
-            ],
-            datasets: [
-                {
-                    data: [19, 9, 2, 2, 2, 2, 2, 1, 1, 1],
-                    backgroundColor: [
-                        "#003f5c",
-                        "#58508d",
-                        "#bc5090",
-                        "#ff6361",
-                        "#ffa600",
-                        "#4b75de",
-                        "#0093ec",
-                        "#00abe2",
-                        "#00bdca",
-                        "#25ccad",
-                    ],
-                },
-            ],
-        };
+    const facultyChartData = {
+        labels: [
+            "วิศวะ",
+            "แพทย์",
+            "สถาปัตย์",
+            "เภสัช",
+            "นิติ",
+            "ทันตะ",
+            "อักษร",
+            "เทคนิคการแพทย์",
+            "เศรฐศาสตร์",
+            "สัตวแพทย์",
+            "BBA",
+        ],
+        datasets: [
+            {
+                data: [19, 9, 2, 2, 2, 2, 2, 1, 1, 1],
+                backgroundColor: [
+                    "#003f5c",
+                    "#58508d",
+                    "#bc5090",
+                    "#ff6361",
+                    "#ffa600",
+                    "#4b75de",
+                    "#0093ec",
+                    "#00abe2",
+                    "#00bdca",
+                    "#25ccad",
+                ],
+            },
+        ],
     };
 
     const chartDataOption = {

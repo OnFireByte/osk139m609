@@ -15,13 +15,15 @@ let Card = (props) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, scale: 0.75, y: -25, rotate: -15 }}
-            animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+            initial={{ opacity: 0, y: -25 }}
+            animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             onClick={() => onCardClick(data)}
-            className="transition-all Card cursor-pointer flex flex-col dark:bg-gray-800 bg-white w-2/5 md:w-54 lg:w-72 xl:w-80 rounded-2xl m-2 max-h-96 md:m-4 p-0 shadow-xl text-gray-900"
+            className="transition-all Card cursor-pointer flex flex-col dark:bg-gray-800 bg-white w-2/5 md:w-54 lg:w-72 xl:w-80 h-96 rounded-2xl m-2 max-h-96 md:m-4 p-0 shadow-xl text-gray-900"
+            layout
         >
             <img
+                layoutd
                 src={imgUrl}
                 alt=""
                 loading="lazy"

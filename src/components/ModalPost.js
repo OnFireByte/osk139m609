@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import "./ModalPost.css";
 import { ReactComponent as CloseSvg } from "./close.svg";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { ReactComponent as LoadingIcon } from "./loading.svg";
 
 let ModalPost = (props) => {
@@ -32,7 +32,6 @@ let ModalPost = (props) => {
                 initial={{ opacity: 0, scale: 0.75 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0 }}
-                transition={{ type: "spring" }}
                 className="main-box transition-all z-40 fixed bg-white dark:bg-gray-800 rounded-3xl lg:flex-row lg:h-2/3 xl:h-4/5 lg:w-4/5 w-4/5 table lg:flex flex-col"
             >
                 <CloseSvg
@@ -51,12 +50,7 @@ let ModalPost = (props) => {
                         style={imgIsLoaded ? { visibility: "hidden" } : { visibility: "visible" }}
                     />
                 </div>
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0 }}
-                    className="grid content-center lg:flex-1 lg:flex-grow-1 transition-all pb-5 text-gray-900 dark:text-gray-50"
-                >
+                <div className="grid content-center lg:flex-1 lg:flex-grow-1 transition-all pb-5 text-gray-900 dark:text-gray-50">
                     <div className="name flex flex-col items-center  my-3 lg:justify-center transition-all">
                         <span className="firstname lg:text-7xl text-5xl text-center">
                             {data.name}
@@ -70,10 +64,10 @@ let ModalPost = (props) => {
 
                         {UInfo}
                     </div>
-                </motion.div>
+                </div>
             </motion.div>
             <motion.div
-                initial={{ opacity: 0.5 }}
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => onBgClick(null)}
