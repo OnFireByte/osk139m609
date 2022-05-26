@@ -1,5 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import "./Find.css";
+import { ReactComponent as CloseSvg } from "./close.svg";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { ReactComponent as FindSvg } from "./find.svg";
 import { ReactComponent as LightSvg } from "./light.svg";
 
@@ -73,11 +76,14 @@ let Find = ({ onValueChange }) => {
 
     return (
         <div className="find">
-            <label className=" find-label flex-grow flex-1 mr-2">
-                <FindSvg fill="currentColor" className="icon w-6 h-6 transition-all" />
+            <label className=" find-label flex-grow flex-1 mr-2 shadow-xl ">
+                <FindSvg
+                    fill="currentColor"
+                    className="icon w-6 h-6 transition-all text-slate-800 dark:text-slate-300"
+                />
                 <input
                     type="text"
-                    className="find-input w-full transition-all outline-none bg-transparent text-blue-50 px-2 lg:px-4 text-2xl lg:text-3xl"
+                    className="find-input w-full transition-all  outline-none bg-transparent text-slate-800 placeholder-slate-800 dark:placeholder-slate-300 dark:text-slate-300 px-2 lg:px-4 text-2xl lg:text-3xl"
                     placeholder={inputPlaceholder}
                     value={inputValue}
                     onChange={(event) => {
@@ -86,10 +92,25 @@ let Find = ({ onValueChange }) => {
                         inputDebounce(event.target.value);
                     }}
                 />
+                <AnimatePresence>
+                    {inputValue && (
+                        <motion.div
+                            initial={{ opacity: 0, x: -20, scale: 0 }}
+                            animate={{ opacity: 1, x: 0, scale: 1 }}
+                            exit={{ opacity: 0, x: -10, scale: 0, transition: { duration: 0.2 } }}
+                            onClick={() => setInputValue("")}
+                        >
+                            <CloseSvg
+                                fill="currentColor"
+                                className="icon w-5 h-5 mr-2 transition-all text-slate-800 dark:text-slate-300"
+                            />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </label>
             <div
                 onClick={() => toggleTheme()}
-                className="div-light cursor-pointer shadow-xl text-gray-900 w-14 h-14 transition-all bg-gray-50 dark:text-white dark:bg-gray-700 box-border p-3 rounded-xl"
+                className="div-light cursor-pointer shadow-xl text-gray-900 w-14 h-14 transition-all bg-white dark:text-white dark:bg-gray-700 box-border p-3 rounded-xl"
             >
                 <LightSvg fill="currentColor" className=" icon-light" />
             </div>
