@@ -82,10 +82,6 @@ function App() {
         setModal(theCard);
     };
 
-    const cardElements = filteredDatas.map((data) => (
-        <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
-    ));
-
     const checkCardElement = () => {
         if (filteredDatas.length === 0 && users.length !== 0) {
             return (
@@ -102,13 +98,13 @@ function App() {
         }
 
         return (
-            <AnimatePresence>
             <motion.div className="main-list min-h-screen pt-24 pb-3 items-center" layout>
                 {filteredDatas.map((data) => (
-                    <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
+                    <AnimatePresence>
+                        <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
+                    </AnimatePresence>
                 ))}
             </motion.div>
-            </AnimatePresence>
         );
     };
 
