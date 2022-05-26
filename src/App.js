@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, Suspense } from "react";
 import stringSimilarity from "string-similarity";
 import "./App.css";
@@ -85,14 +84,10 @@ function App() {
         return (
             <motion.div className="main-list min-h-screen pt-24 pb-3 items-center" layout>
                 <AnimatePresence>
-                    {(filteredDatas.length !== 0 &&
+                    {filteredDatas.length !== 0 &&
                         filteredDatas.map((data) => (
                             <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
-                        ))) || (
-                        <div className="text-6xl dark:text-white text-gray-900">
-                            Nothing found, Sorry.
-                        </div>
-                    )}
+                        ))}
                 </AnimatePresence>
             </motion.div>
         );
@@ -103,7 +98,7 @@ function App() {
             <AppHeader findValue={find} onFindValueChange={setFind} />
             <AnimatePresence>
                 {modal && (
-                    <Suspense fallback={<></>}>
+                    <Suspense fallback={null}>
                         <ModalPost
                             data={modal}
                             onBgClick={onCardOpenClick}
