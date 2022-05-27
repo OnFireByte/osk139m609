@@ -521,9 +521,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-24 {
   height: 6rem;
 }
-.h-96 {
-  height: 24rem;
-}
 .h-36 {
   height: 9rem;
 }
@@ -619,6 +616,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .items-center {
   align-items: center;
+}
+.items-stretch {
+  align-items: stretch;
 }
 .justify-center {
   justify-content: center;
@@ -882,6 +882,10 @@ body {
 ::-webkit-scrollbar-thumb {
     background: rgb(97, 106, 121);
     border-radius: 5px;
+}
+
+.App {
+    transition: background-color 0.3s ease-out;
 }
 
 .hover\:rotate-90:hover {

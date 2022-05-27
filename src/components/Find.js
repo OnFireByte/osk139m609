@@ -19,6 +19,10 @@ function debounce(func, timeout = 300) {
 let Find = ({ onValueChange }) => {
     const inputDebounce = useRef(
         debounce((nextValue) => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
             onValueChange(nextValue);
         })
     ).current;
@@ -100,7 +104,10 @@ let Find = ({ onValueChange }) => {
                             exit={{ opacity: 0, x: -10, scale: 0, transition: { duration: 0.2 } }}
                             onClick={() => {
                                 setInputValue("");
-
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth",
+                                });
                                 onValueChange("");
                             }}
                             className="cursor-pointer"

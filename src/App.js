@@ -82,7 +82,7 @@ function App() {
         }
 
         return (
-            <motion.div className="main-list min-h-screen pt-24 pb-3 items-center" layout>
+            <motion.div className="main-list pt-24 pb-3 items-stretch" layout>
                 <AnimatePresence>
                     {filteredDatas.length !== 0 &&
                         filteredDatas.map((data) => (

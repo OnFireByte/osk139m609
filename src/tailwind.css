@@ -25,3 +25,7 @@ body {
     background: rgb(97, 106, 121);
     border-radius: 5px;
 }
+
+.App {
+    transition: background-color 0.3s ease-out;
+}
