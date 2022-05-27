@@ -98,7 +98,12 @@ let Find = ({ onValueChange }) => {
                             initial={{ opacity: 0, x: -20, scale: 0 }}
                             animate={{ opacity: 1, x: 0, scale: 1 }}
                             exit={{ opacity: 0, x: -10, scale: 0, transition: { duration: 0.2 } }}
-                            onClick={() => setInputValue("")}
+                            onClick={() => {
+                                setInputValue("");
+
+                                onValueChange("");
+                            }}
+                            className="cursor-pointer"
                         >
                             <CloseSvg
                                 fill="currentColor"
