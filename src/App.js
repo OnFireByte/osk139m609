@@ -82,12 +82,21 @@ function App() {
         }
 
         return (
-            <motion.div className="main-list pt-24 pb-3 items-stretch" layout>
+            <motion.div className="main-list pt-24 pb-3 min-h-[20rem] items-stretch" layout>
                 <AnimatePresence>
-                    {filteredDatas.length !== 0 &&
+                    {(filteredDatas.length !== 0 &&
                         filteredDatas.map((data) => (
                             <Card key={data.number} data={data} onCardClick={onCardOpenClick} />
-                        ))}
+                        ))) || (
+                        <motion.div
+                            className="my-20 text-5xl text-slate-900  dark:text-white absolute"
+                            initial={{ opacity: 0, y: -50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0 }}
+                        >
+                            Nothing to show here 😓
+                        </motion.div>
+                    )}
                 </AnimatePresence>
             </motion.div>
         );

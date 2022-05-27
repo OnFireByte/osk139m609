@@ -465,6 +465,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .m-8 {
   margin: 2rem;
 }
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -547,6 +551,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .max-h-96 {
   max-height: 24rem;
+}
+.min-h-\[20rem\] {
+  min-height: 20rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -764,6 +771,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-center {
   text-align: center;
 }
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
@@ -784,13 +795,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+.text-slate-900 {
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity));
 }
 .text-white {
   --tw-text-opacity: 1;
