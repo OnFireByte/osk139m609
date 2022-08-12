@@ -98,7 +98,7 @@ let Find = ({ onValueChange }) => {
                 />
                 <AnimatePresence>
                     {inputValue && (
-                        <motion.div
+                        <motion.button
                             initial={{ opacity: 0, x: -20, scale: 0 }}
                             animate={{ opacity: 1, x: 0, scale: 1 }}
                             exit={{ opacity: 0, x: -10, scale: 0, transition: { duration: 0.2 } }}
@@ -116,16 +116,16 @@ let Find = ({ onValueChange }) => {
                                 fill="currentColor"
                                 className="icon w-5 h-5 mr-2 transition-all text-slate-800 dark:text-slate-300"
                             />
-                        </motion.div>
+                        </motion.button>
                     )}
                 </AnimatePresence>
             </label>
-            <div
+            <button
                 onClick={() => toggleTheme()}
                 className="div-light cursor-pointer shadow-xl text-gray-900 w-14 h-14 transition-all bg-white dark:text-white dark:bg-gray-700 box-border p-3 rounded-xl"
             >
                 <LightSvg fill="currentColor" className=" icon-light" />
-            </div>
+            </button>
         </div>
     );
 };
