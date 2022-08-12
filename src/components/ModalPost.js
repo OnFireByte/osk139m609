@@ -41,10 +41,9 @@ let ModalPost = (props) => {
                 onClick={(e) => e.stopPropagation()}
                 className="main-box transition-all hover:cursor-auto z-40 fixed bg-white dark:bg-gray-800 rounded-3xl lg:flex-row lg:h-2/3 xl:h-4/5 lg:w-4/5 w-4/5 table lg:flex flex-col"
             >
-                <CloseSvg
-                    onClick={() => onBgClick(null)}
-                    className="cursor-pointer transition-all duration-300 transform hover:rotate-90 absolute z-10 top-0 right-0 bg-gray-500 lg:bg-transparent bg-opacity-40 opacity-80 lg:opacity-100 box-content p-2 lg:p-0 rounded-full lg:rounded-none m-2 lg:m-6 w-6 h-6 fill-current close text-white lg:dark:text-white lg:text-gray-900  "
-                />
+                <button onClick={() => onBgClick(null)}>
+                    <CloseSvg className="cursor-pointer transition-all duration-300 transform hover:rotate-90 absolute z-10 top-0 right-0 bg-gray-500 lg:bg-transparent bg-opacity-40 opacity-80 lg:opacity-100 box-content p-2 lg:p-0 rounded-full lg:rounded-none m-2 lg:m-6 w-6 h-6 fill-current close text-white lg:dark:text-white lg:text-gray-900  " />
+                </button>
                 <div className="modal-img relative bg-gray-700 rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none w-full lg:w-3/5 flex-grow-0 h-56 lg:h-full ">
                     <img
                         src={imgUrl}
